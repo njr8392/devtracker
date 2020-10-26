@@ -1,0 +1,29 @@
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-10-25 22:57 EDT
+Nmap scan report for G3100.myfiosgateway.com (192.168.1.1)
+Host is up (0.0016s latency).
+Nmap scan report for den (192.168.1.100)
+Host is up (0.0043s latency).
+Nmap scan report for Family-Room (192.168.1.103)
+Host is up (0.0044s latency).
+Nmap scan report for Bedroom-2 (192.168.1.105)
+Host is up (0.0057s latency).
+Nmap scan report for Bedroom-1 (192.168.1.106)
+Host is up (0.0053s latency).
+Nmap scan report for Marias-iMac (192.168.1.151)
+Host is up (0.0032s latency).
+Nmap scan report for SAMSUNG-SM-G930V (192.168.1.153)
+Host is up (0.0069s latency).
+Nmap scan report for SAMSUNG-SM-G930V (192.168.1.154)
+Host is up (0.020s latency).
+Nmap scan report for nicholas-MacBookPro (192.168.1.165)
+Host is up (0.00038s latency).
+Nmap scan report for Monicas-iPhone (192.168.1.166)
+Host is up (0.0095s latency).
+Nmap scan report for localhost (192.168.1.170)
+Host is up (0.0045s latency).
+Nmap scan report for Dantes-Galaxy-A71-5G (192.168.1.176)
+Host is up (0.085s latency).
+Nmap scan report for Chromecast (192.168.1.178)
+Host is up (0.0035s latency).
+Nmap done: 256 IP addresses (13 hosts up) scanned in 2.44 seconds
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-10-25 23:16 EDT
