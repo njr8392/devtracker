@@ -11,13 +11,20 @@ import (
 func main() {
 
 	var (
-	//	buf       bytes.Buffer
+		//	buf       bytes.Buffer
 		ipaddress string = os.Getenv("IP")
 		//switch logger from buffer to os.Stdout
-		logger           = log.New(os.Stdout, "Dante's Phone: ", log.Ltime)
+		logger = log.New(os.Stdout, "Dante's Phone: ", log.Ltime)
 	)
 
-	cmd := exec.Command("ping", "-i 25", ipaddress)
+	f, err := os.OpenFile("log.txt", os.O_CREATE|os.O_APPEND|os.O_WRONLY, 0666)
+	if err != nil {
+		log.Fatalf("error opening file: %v", err)
+	}
+	defer f.Close()
+
+	logger.SetOutput(f)
+	cmd := exec.Command("ping", "-i 600", ipaddress)
 	stdout, err := cmd.StdoutPipe()
 	if err != nil {
 		log.Fatal(err)
@@ -32,7 +39,8 @@ func main() {
 		line, _, _ := r.ReadLine()
 		if strings.Contains(string(line), "Destination Host Unreachable") {
 			logger.Printf("Disconnected")
+		} else {
+			logger.Printf("Connected")
 		}
-		logger.Printf("Connected")
 	}
 }
