@@ -1,35 +1,38 @@
 package main
 
-import(
-	"os/exec"
-	"os"
+import (
+	"bufio"
 	"log"
-	"bytes"
-	"fmt"
+	"os"
+	"os/exec"
 	"strings"
-	)
-func main (){
-	//WHY THE FUCK IS THIS NOT WORKING
-	var (
-	buf bytes.Buffer
-	output bytes.Buffer
-	ipaddress string = os.Getenv("IP")
-	logger = log.New(&buf, "Dante's Phone: ", log.Ltime)
-	)
-	
-	cmd := exec.Command("ping", "-i 5", ipaddress)
-	cmd.Stdout = &output
-	err := cmd.Start()
+)
 
+func main() {
+
+	var (
+	//	buf       bytes.Buffer
+		ipaddress string = os.Getenv("IP")
+		//switch logger from buffer to os.Stdout
+		logger           = log.New(os.Stdout, "Dante's Phone: ", log.Ltime)
+	)
+
+	cmd := exec.Command("ping", "-i 25", ipaddress)
+	stdout, err := cmd.StdoutPipe()
 	if err != nil {
-		fmt.Println(err)
+		log.Fatal(err)
 	}
-	
-	if strings.Contains(output.String(), "Destination Host Unreachable"){
-		logger.Print("Disconnected")
-		fmt.Print("connected")
+
+	if err := cmd.Start(); err != nil {
+		log.Fatal(err)
 	}
-	logger.Print("Connected")
-	fmt.Print("connected")
-cmd.Wait()
+
+	r := bufio.NewReader(stdout)
+	for {
+		line, _, _ := r.ReadLine()
+		if strings.Contains(string(line), "Destination Host Unreachable") {
+			logger.Printf("Disconnected")
+		}
+		logger.Printf("Connected")
+	}
 }
