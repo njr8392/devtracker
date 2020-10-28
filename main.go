@@ -6,6 +6,7 @@ import (
 	"os"
 	"os/exec"
 	"strings"
+	"time"
 )
 
 func main() {
@@ -36,11 +37,15 @@ func main() {
 
 	r := bufio.NewReader(stdout)
 	for {
-		line, _, _ := r.ReadLine()
+		line, err := r.ReadBytes('\n')
+		if err != nil{
+			log.Fatal(err)
+		}
+		time.Sleep(time.Second)
 		if strings.Contains(string(line), "Destination Host Unreachable") {
 			logger.Printf("Disconnected")
 		} else {
-			logger.Printf("Connected")
+				logger.Printf("Connected")
 		}
 	}
 }
