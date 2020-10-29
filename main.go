@@ -55,7 +55,7 @@ func main() {
 			end := time.Now()
 			_, month, day := end.Date()
 			elapsed := end.Sub(start)
-			logger.Printf("%s was disconnected from the wifi for %s on %s %s", device, elapsed, month, day)
+			logger.Printf("%s was disconnected from the wifi for %s on %s %d", device, elapsed, month, day)
 			started = false
 
 		} else {
