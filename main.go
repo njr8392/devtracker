@@ -53,7 +53,6 @@ func main() {
 
 		} else if !isDisconnected(string(line)) && started {
 			end := time.Now()
-			_, month, day := end.Date()
 			elapsed := end.Sub(start)
 			logger.Printf("was disconnected from the wifi for %v from %s to %s", elapsed.Round(time.Second), start.Format(time.Stamp), end.Format(time.Stamp))
 			started = false
