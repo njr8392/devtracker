@@ -13,6 +13,7 @@ func main() {
 
 	var (
 		//	buf       bytes.Buffer
+		//will use to the buf when add email functionality
 		started   bool
 		start     time.Time
 		ipaddress string = os.Getenv("IP")
@@ -29,7 +30,7 @@ func main() {
 		defer f.Close()
 		logger.SetOutput(f)
 
-	cmd := exec.Command("ping", "-i 10", ipaddress)
+	cmd := exec.Command("ping", "-i 600", ipaddress)
 	stdout, err := cmd.StdoutPipe()
 	if err != nil {
 		log.Fatal(err)
