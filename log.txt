@@ -1,9 +1,0 @@
-Dante's Phone 02:26:23 was disconnected from the wifi for 18s from Oct 30 02:26:06 to Oct 30 02:26:23
-Dante's Phone 04:23:14 was disconnected from the wifi for 32s from Oct 30 04:22:43 to Oct 30 04:23:14
-Dante's Phone 04:47:31 was disconnected from the wifi for 40s from Oct 30 04:46:51 to Oct 30 04:47:31
-Dante's Phone 05:47:32 was disconnected from the wifi for 40s from Oct 30 05:46:52 to Oct 30 05:47:32
-Dante's Phone 18:38:23 was disconnected from the wifi for 9h52m52s from Oct 30 08:45:31 to Oct 30 18:38:23
-Dante's Phone 19:32:13 was disconnected from the wifi for 2m30s from Oct 30 19:29:43 to Oct 30 19:32:13
-Dante's Phone 13:02:36 was disconnected from the wifi for 29m50s from Oct 31 12:32:46 to Oct 31 13:02:36
-Dante's Phone 01:01:56 was disconnected from the wifi for 10h2m12s from Oct 31 14:59:44 to Nov  1 01:01:56
-Dante's Phone 13:47:56 was disconnected from the wifi for 9m57s from Nov  1 13:37:59 to Nov  1 13:47:56
