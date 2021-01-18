@@ -9,26 +9,26 @@ import (
 	"time"
 )
 
+var (
+	started   bool
+	start     time.Time
+	ipaddress string = os.Getenv("IP")
+	device    string = os.Getenv("DEVICE")
+	logger           = log.New(os.Stdout, device, log.Ltime)
+)
+
+//this will simply ping a given IP every 6 minutes and if disconnected it will begin a time until the device
+//is reconnected and log the time
 func main() {
 
-	var (
-		//	buf       bytes.Buffer
-		//will use to the buf when add email functionality
-		started   bool
-		start     time.Time
-		ipaddress string = os.Getenv("IP")
-		device    string = os.Getenv("DEVICE")
-		//switch logger from buffer to os.Stdout
-		logger = log.New(os.Stdout, device, log.Ltime)
-	)
-		f, err := os.OpenFile("log.txt", os.O_CREATE|os.O_APPEND|os.O_WRONLY, 0666)
+	f, err := os.OpenFile("log.txt", os.O_CREATE|os.O_APPEND|os.O_WRONLY, 0666)
 
-		if err != nil {
-			log.Fatalf("error opening file: %v", err)
-		}
+	if err != nil {
+		log.Fatalf("error opening file: %v", err)
+	}
 
-		defer f.Close()
-		logger.SetOutput(f)
+	defer f.Close()
+	logger.SetOutput(f)
 
 	cmd := exec.Command("ping", "-i 600", ipaddress)
 	stdout, err := cmd.StdoutPipe()
